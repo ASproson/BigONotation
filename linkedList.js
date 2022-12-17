@@ -61,6 +61,18 @@ class LinkedList {
     }
     return null;
   }
+
+  insertAtIndex(index, value) {
+    let currentNode = this.firstNode;
+    let currentIndex = 0;
+    while (currentIndex < index) {
+      currentNode = currentNode.getNextNode();
+      currentIndex += 1;
+    }
+    const newNode = new Node(value);
+    newNode.setNextNode(currentNode.getNextNode());
+    currentNode.setNextNode(newNode);
+  }
 }
 
 const linkedList = new LinkedList(node1);
@@ -69,3 +81,9 @@ console.log(linkedList.read(1));
 console.log(linkedList.read(2));
 console.log(linkedList.read(3));
 console.log(linkedList.search("time"));
+linkedList.insertAtIndex(1, "inserting");
+console.log(linkedList.read(0));
+console.log(linkedList.read(1));
+console.log(linkedList.read(2));
+console.log(linkedList.read(3));
+console.log(linkedList.read(4));
