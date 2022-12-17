@@ -73,6 +73,17 @@ class LinkedList {
     newNode.setNextNode(currentNode.getNextNode());
     currentNode.setNextNode(newNode);
   }
+
+  deleteAtIndex(index) {
+    let currentNode = this.firstNode;
+    let currentIndex = 0;
+    while (currentIndex < index - 1) {
+      currentNode = currentNode.getNextNode();
+      currentIndex += 1;
+    }
+    const nodeAfterDeletedNode = currentNode.getNextNode().getNextNode();
+    currentNode.setNextNode(nodeAfterDeletedNode);
+  }
 }
 
 const linkedList = new LinkedList(node1);
@@ -87,3 +98,8 @@ console.log(linkedList.read(1));
 console.log(linkedList.read(2));
 console.log(linkedList.read(3));
 console.log(linkedList.read(4));
+linkedList.deleteAtIndex(2);
+console.log(linkedList.read(0));
+console.log(linkedList.read(1));
+console.log(linkedList.read(2));
+console.log(linkedList.read(3));
