@@ -131,3 +131,14 @@ insert(8, root);
 console.log(root);
 del(7, root);
 console.log(root);
+
+const traverse = (node) => {
+  if (node === null) {
+    return;
+  }
+  traverse(node.leftChild);
+  console.log(node.value);
+  traverse(node.rightChild);
+};
+
+console.log(">>>", traverse(root));
